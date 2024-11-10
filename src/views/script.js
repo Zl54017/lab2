@@ -30,4 +30,3 @@ document.getElementById('enableXSS').addEventListener('change', (event) => {
     const data = await response.json();
     document.getElementById('sensitiveData').textContent = JSON.stringify(data, null, 2);
   }
-  
