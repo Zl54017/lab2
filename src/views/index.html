@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigurnost na webu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Web nesigurnosti Demo</h1>
+
+    <div class="section-box">
+        <h2>XSS napad</h2>
+        <p>Ovo je jedan od načina XSS napada. Obrazac traži unos imena korisnika za pregled postoji li u bazi podataka.
+           Kada je napad omogućen ne radi se filtriranje imena za posebnim znakovima stoga unosom npr.
+           &lt;script&gt;alert('XSS')&lt;/script&gt; iskorištavamo ovu ranjivost.
+        </p>
+        <form id="xssForm">
+            <label for="xssInput">Provjerite jeste li u bazi podataka:</label>
+            <input type="text" id="xssInput" placeholder="Unesite ime...">
+            <button type="submit">Pošalji</button>
+        </form>
+        <label>
+            <input type="checkbox" id="enableXSS" checked>
+            Omogući XSS napad
+        </label>
+        <div id="xssFrame"></div>
+    </div>
+
+    <div class="section-box">
+        <h2>Nesigurna pohrana osjetljivih podataka</h2>
+        <p>Ovo je primjer nepravilnog prikaza osjetljivih podataka. 
+            Podatci nisu šifrirani te se prenose kao običan tekst stoga napadač može vidjeti osjetljive podatke.
+            Kada se ranjivost onemogući, server šalje samo podatke koji ne daju nikakvu informaciju o korisnikovim osobnim podatcima.</p>
+        <button onclick="fetchSensitiveData()">Prikaz osjetljivih podataka</button>
+        <pre id="sensitiveData"></pre>
+        <label>
+            <input type="checkbox" id="enableInsecureStorage" checked>
+            Omogući nesigurnu pohranu osjetljivih podataka
+        </label>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
